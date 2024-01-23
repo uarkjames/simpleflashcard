@@ -28,4 +28,6 @@ const cards = [
 4. Save.
 
  ## What remains to be done? 
- I'm still working on accessibility. 
+ - [ ] Improve accessibility
+ - [ ] Explore implementing xAPI
+ - [ ] Improve UX for display of long questions
