@@ -1,5 +1,5 @@
 # What's this, then? 
-It's a single-flile, HTML/CSS/JS flashcard/flipcard app designed to work in an HTML document in Blackboard Ultra LMS. 
+It's a single-file, HTML/CSS/JS flashcard/flipcard app designed to work in an HTML document in Blackboard Ultra LMS, though it should work in any LMS or any LMS or CMS where you have access to an HTML editor. And, of course, it will work in any web page where you have access to the code.  
 
 ## How do I customize it? 
 The questions and answers live in an array of contants called `cards`. Here's the dummy/demo data
