@@ -30,4 +30,4 @@ const cards = [
  ## What remains to be done? 
  - [ ] Improve accessibility
  - [ ] Explore implementing xAPI
- - [ ] Improve UX for display of long questions
+ - [x] Improve UX for display of long questions
