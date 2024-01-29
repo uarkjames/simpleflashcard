@@ -29,9 +29,17 @@ const cards = [
 
 ## How do I make use of the xAPI features? 
 The xAPI features are minimal and optional. If you want to take advantage of them, do the following:  
-1. Sign up for an LRS at [SCORM Cloud](https://rusticisoftware.com/products/scorm-cloud/), [Veracity Learning](https://lrs.io/). 
+1. Sign up for an LRS at [SCORM Cloud](https://rusticisoftware.com/products/scorm-cloud/), [Veracity Learning](https://lrs.io/), etc.  
 2. Copy the endpoint, username, and password values for your LRS into the relevant place in flashcard.html. 
 3. Save and test. 
+
+There are console.log statements in the code which will appear in the console telling you if the LRS connection is successful or not:  
+* `LRS connection established`
+* `Failed to set up LRS object` + error
+
+You'll get one of these statements when the app attempts to send an xAPI statement: 
+* `Failed to save async xAPI statement:` + response code
+* `Async xAPI statement saved`
 
  ## What remains to be done? 
  - [ ] Improve accessibility
