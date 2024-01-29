@@ -29,7 +29,8 @@ const cards = [
 
  ## What remains to be done? 
  - [ ] Improve accessibility
- - [ ] Implement basic xAPI
+ - [ ] Implement more meaningful xAPI statements
+ - [x] Implement basic xAPI
  - [x] Improve UX for display of long questions
 
  ## Learn More
