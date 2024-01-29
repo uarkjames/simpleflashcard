@@ -29,5 +29,9 @@ const cards = [
 
  ## What remains to be done? 
  - [ ] Improve accessibility
- - [ ] Explore implementing xAPI
+ - [ ] Implement basic xAPI
  - [x] Improve UX for display of long questions
+
+ ## Learn More
+ * TinCanJS docs: https://rusticisoftware.github.io/TinCanJS/
+ * TinCanJS via jsDelivr CDN: https://www.jsdelivr.com/package/npm/tincanjs

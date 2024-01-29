@@ -36,6 +36,10 @@
     }
   }
   </style>
+  <!-- Include Tin Can API / xAPI via CDN --> 
+  <script src="https://cdn.jsdelivr.net/npm/tincanjs@0.50.0/build/tincan-min.min.js"></script>
+
+  <!-- App Logic --> 
   <script type="text/javascript">
   // make sure the page has loaded before you try to call .innerHTML
   window.onload = function(){
@@ -91,7 +95,66 @@
     document.getElementById("flip-button").addEventListener("click", flipCard);
     document.getElementById("next-button").addEventListener("click", nextCard);
 
-  }
+    /* xAPI */
+    // Connect to LRS
+    var lrs;
+
+    try {
+        lrs = new TinCan.LRS(
+            {
+                endpoint: "https://simpleflashcardgithubdemo.lrs.io/xapi/",
+                username: "GitHubKey",
+                password: "0cL,E2G8h*2#",
+                allowFail: false
+            }
+        );
+        console.log("LRS connection established")
+    }
+    catch (ex) {
+        console.log("Failed to setup LRS object: ", ex);
+        // TODO: do something with error, can't communicate with LRS
+    }
+
+    // Prep an xAPI Statement
+    var statement = new TinCan.Statement(
+      {
+          actor: {
+              mbox: "mailto:xapi@example.com"
+          },
+          verb: {
+              id: "http://adlnet.gov/expapi/verbs/experienced"
+          },
+          target: {
+              id: "https://github.com/uarkjames/simpleflashcard"
+          }
+      }
+    );
+
+    // Send an Async xAPI Statement
+    lrs.saveStatement(
+    statement,
+      {
+          callback: function (err, xhr) {
+              if (err !== null) {
+                  if (xhr !== null) {
+                      console.log("Failed to save async xAPI statement: " + xhr.responseText + " (" + xhr.status + ")");
+                      // TODO: do something with error, didn't save statement
+                      return;
+                  }
+
+                  console.log("Failed to save async xAPI statement: " + err);
+                  // TODO: do something with error, didn't save statement
+                  return;
+              }
+
+              console.log("Async xAPI statement saved");
+              // TOOO: do something with success (possibly ignore)
+          }
+      }
+    );
+
+ 
+  } // Don't delete me
   </script>
 </head>
 <body>
