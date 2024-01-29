@@ -27,6 +27,12 @@ const cards = [
 3. Copy paste the contents of the `flashcard.html` file into the document.
 4. Save.
 
+## How do I make use of the xAPI features? 
+The xAPI features are minimal and optional. If you want to take advantage of them, do the following:  
+1. Sign up for an LRS at [SCORM Cloud](https://rusticisoftware.com/products/scorm-cloud/), [Veracity Learning](https://lrs.io/). 
+2. Copy the endpoint, username, and password values for your LRS into the relevant place in flashcard.html. 
+3. Save and test. 
+
  ## What remains to be done? 
  - [ ] Improve accessibility
  - [ ] Implement more meaningful xAPI statements
