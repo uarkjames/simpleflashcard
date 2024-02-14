@@ -82,6 +82,7 @@
       displayElement.innerHTML = displayElement.innerHTML === card.question ? card.answer : card.question;
       if (displayElement.innerHTML == card.answer) {
         document.getElementById("card-body").style.backgroundColor = backOfCardColor;
+        document.getElementById('card-body').style.transition = "background-color 0.25s linear"; 
       } else {
         document.getElementById("card-body").style.backgroundColor = frontOfCardColor;
       }
