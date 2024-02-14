@@ -25,6 +25,10 @@
       padding: 30px;
       min-height: 40px;
     }
+    #answer {
+
+    }
+    /* media queries */
     @media (min-width: 300px) {
       #card-wrapper {
         width: 75%;
@@ -61,11 +65,14 @@
     console.log(cards)
 
     let currentCardIndex = 0;
+    const frontOfCardColor = "lightslategray";
+    const backOfCardColor = "lightgray";
 
     function showCard() {
       const card = cards[currentCardIndex];
       document.getElementById("question").innerHTML = card.question;
       document.getElementById("answer").innerHTML = "";
+      document.getElementById("card-body").style.backgroundColor = frontOfCardColor; 
       console.log("currentCardIndex:" + currentCardIndex)
     }
 
@@ -73,6 +80,11 @@
       const card = cards[currentCardIndex];
       const displayElement = document.getElementById("question");
       displayElement.innerHTML = displayElement.innerHTML === card.question ? card.answer : card.question;
+      if (displayElement.innerHTML == card.answer) {
+        document.getElementById("card-body").style.backgroundColor = backOfCardColor;
+      } else {
+        document.getElementById("card-body").style.backgroundColor = frontOfCardColor;
+      }
     }
 
     function nextCard() {
