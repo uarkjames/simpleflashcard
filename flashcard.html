@@ -10,7 +10,7 @@
     }
     #card-wrapper {
       width: 25rem;
-      height: 200px;
+      height: 400px; /* 200px */
       margin: 25px;
     }
     #card-body {
@@ -21,13 +21,21 @@
       padding: 25px;
       box-shadow: 0 15px 35px rgba(0,0,0,0.2),0 5px 15px rgba(0,0,0,0.19);
     }
+    #buttons-wrapper {
+      padding: 5px;
+    }
     #question {
-      padding: 30px;
+      padding-top: 20px;
       min-height: 40px;
     }
     #answer {
 
     }
+    #answerImage {
+      max-height: 300px;
+      max-width: 300px;
+    }
+
     /* media queries */
     @media (min-width: 300px) {
       #card-wrapper {
@@ -57,8 +65,8 @@
       {
         question: "What is the largest ocean in the world?",
         answer: "The Pacific Ocean",
-        questionImage: "", 
-        answerImage: "",
+        questionImage: "https://previews.dropbox.com/p/thumb/ACNjLlWCLRlN2DBvD-1ZzVNXNSwWKNYnqexa40sB-BtCiwTASTCKxy0tWvqSNS9NDx_c2ex0jEsGfOL5DJBu88MTWYwr2h1kAfUJVPXqbUbFzzgRBbXWlumavsu8QzroOd0mOxVdh8-0_669D-QO3wWuDzq-C7GNWFe5hTNgQbtSGBZUE_K9CN0Wd7caXdLMidN7YZ3u6xGRfNqu1FYJjaARpv9Esd4hlFLM2Z8Acmzf82D8-1JzflW-sKk7AWWe5PmZlEZBfLIguyJ5VbijhepUuWTSIucj9lc8dTDAkW_MSXsgK84bcbHklYCTCQWc6GeaGpID3MkwifrrJs30KO0D/p.jpeg", 
+        answerImage: "https://previews.dropbox.com/p/thumb/ACNFYns7Ukmj6WsBL-H-UUXSMVdNkh3km-Abxs2nPUvo426Ol_2t_BaYML6Ohaa8r7WC9OBWTCwffBC2Khl4MKdmN--QgbazA-69HkYY23oKS4Fo18Y7fj0yx9vqxnMQzwr1b9qH0FL_bC6F3h0KcvnIDSRJ9T9u9OBBlRMw-jBqR6BFVemUFGv9l1fOoBT4CdQqUWpndnXKPbGURLkjNBEZw_qMpYq37rHYY1mUIa4lOXJcuApoHCNwgmoXYotkSj7gx1OZafjp0NZFq3opx9YAe6auQOaULq_aLriMcLo2R4qp_nxIYXysnTF1-HjbbIAvzTAvxiG15Gocs5CQnpaQ/p.png",
       },
       {
         question: "What is the square root of 16?",
@@ -74,23 +82,28 @@
     const frontOfCardColor = "lightslategray";
     const backOfCardColor = "lightgray";
 
+    // assemble and display the card
     function showCard() {
       const card = cards[currentCardIndex];
       document.getElementById("question").innerHTML = card.question;
       document.getElementById("answer").innerHTML = "";
+      document.getElementById('answerImage').src = card.questionImage;
       document.getElementById("card-body").style.backgroundColor = frontOfCardColor; 
       console.log("currentCardIndex:" + currentCardIndex)
     }
 
+    // respond to the 'flip card' button
     function flipCard() {
       const card = cards[currentCardIndex];
       const displayElement = document.getElementById("question");
       displayElement.innerHTML = displayElement.innerHTML === card.question ? card.answer : card.question;
       if (displayElement.innerHTML == card.answer) {
         document.getElementById("card-body").style.backgroundColor = backOfCardColor;
-        document.getElementById('card-body').style.transition = "background-color 0.25s linear"; 
+        document.getElementById('card-body').style.transition = "background-color 0.25s linear";
+        document.getElementById('answerImage').src = card.answerImage; 
       } else {
-        document.getElementById("card-body").style.backgroundColor = frontOfCardColor;
+        document.getElementById("card-body").style.backgroundColor = frontOfCardColor; 
+        document.getElementById('answerImage').src = card.questionImage;
       }
     }
 
@@ -183,10 +196,12 @@
     <div id="question"></div>
     <div id="questionImage"><img src="" /></div>
     <div id="answer"></div>
-    <div id="answerImage"><img src="" /></div>
-    <button id="previous-button"><i class="fa-sharp fa-solid fa-arrow-left"></i> Previous</button>
-    <button id="flip-button"><i class="fa-solid fa-repeat"></i> Flip Card</button>
-    <button id="next-button">Next <i class="fa-sharp fa-solid fa-arrow-right"></i></button>
+    <div id="answerImageContainer"><img id="answerImage" src="" /></div>
+    <div id="buttons-wrapper">
+      <button id="previous-button"><i class="fa-sharp fa-solid fa-arrow-left"></i> Previous</button>
+      <button id="flip-button"><i class="fa-solid fa-repeat"></i> Flip Card</button>
+      <button id="next-button">Next <i class="fa-sharp fa-solid fa-arrow-right"></i></button>
+    </div><!-- /buttons-wrapper -->
   </div><!-- /card-wrapper -->
 </div><!-- /card-body -->
 
