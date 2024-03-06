@@ -2,21 +2,27 @@
 It's a single-file, HTML/CSS/JS flashcard/flipcard app designed to work in an HTML document in Blackboard Ultra LMS, though it should work in any LMS or any LMS or CMS where you have access to an HTML editor. And, of course, it will work in any web page where you have access to the code.  
 
 ## How do I customize it? 
-The questions and answers live in an array of contants called `cards`. Here's the dummy/demo data
+The questions and answers live in an array of contants called `cards`. Here's the dummy/demo data. I've replaced the actual URLs for the images with something shorter, for simplicity. 
 
 ```
 const cards = [
       {
         question: "What is the capital of France?",
         answer: "Paris",
+        questionImage: "https://example.com/questionImage.jpg", 
+        answerImage: "https://example.com/answerImage.jpg", 
       },
       {
         question: "What is the largest ocean in the world?",
         answer: "The Pacific Ocean",
+        questionImage: "https://example.com/questionImage.jpg", 
+        answerImage: "https://example.com/answerImage.jpg", 
       },
       {
         question: "What is the square root of 16?",
         answer: "4",
+        questionImage: "https://example.com/questionImage.jpg", 
+        answerImage: "https://example.com/answerImage.jpg", 
       },
     ];
 ```
