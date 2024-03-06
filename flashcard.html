@@ -80,11 +80,44 @@
 
     console.log(cards)
 
+    // preload images
+    function preloadImages() {
+      // Create an array to store the images
+      const imagesToPreload = [];
+
+      // Loop through the cards array
+      cards.forEach(card => {
+        // Create a new Image object for each question and answer image
+        const questionImage = new Image();
+        const answerImage = new Image();
+
+        // Set the src properties to the image URLs
+        questionImage.src = card.questionImage;
+        answerImage.src = card.answerImage;
+
+        // Push the images to the array
+        imagesToPreload.push(questionImage, answerImage);
+      });
+
+      // Return a promise that resolves when all the images have loaded
+      return Promise.all(imagesToPreload.map(image => {
+        return new Promise(resolve => {
+          image.onload = resolve;
+          image.onerror = resolve;
+        });
+      }));
+    }
+
+    preloadImages().then(() => {
+      console.log("All images have been preloaded.");
+      // Now you can display the flashcards knowing that the images are already loaded
+    });
+    
+    // assemble and display the card
     let currentCardIndex = 0;
     const frontOfCardColor = "lightslategray";
     const backOfCardColor = "lightgray";
 
-    // assemble and display the card
     function showCard() {
       const card = cards[currentCardIndex];
       document.getElementById("question").innerHTML = card.question;
