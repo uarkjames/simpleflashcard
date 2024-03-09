@@ -2,27 +2,27 @@
 It's a single-file, HTML/CSS/JS flashcard/flipcard app designed to work in an HTML document in Blackboard Ultra LMS, though it should work in any LMS or any LMS or CMS where you have access to an HTML editor. And, of course, it will work in any web page where you have access to the code.  
 
 ## How do I customize it? 
-The questions and answers live in an array of contants called `cards`. Here's the dummy/demo data. I've replaced the actual URLs for the images with something shorter, for simplicity. 
+The questions, answers, and image URLs live in an array of contants called `cards`. Here's the dummy/demo data: 
 
 ```
 const cards = [
       {
         question: "What is the capital of France?",
         answer: "Paris",
-        questionImage: "https://example.com/questionImage.jpg", 
-        answerImage: "https://example.com/answerImage.jpg", 
+        questionImage: "https://wheatdesign.com/simpleflashcard/pix/EiffelTower.jpg", 
+        answerImage: "https://wheatdesign.com/simpleflashcard/pix/France.png", 
       },
       {
         question: "What is the largest ocean in the world?",
         answer: "The Pacific Ocean",
-        questionImage: "https://example.com/questionImage.jpg", 
-        answerImage: "https://example.com/answerImage.jpg", 
+        questionImage: "https://wheatdesign.com/simpleflashcard/pix/PacificOcean.jpg", 
+        answerImage: "https://wheatdesign.com/simpleflashcard/pix/PacificOceanMap.png",
       },
       {
         question: "What is the square root of 16?",
         answer: "4",
-        questionImage: "https://example.com/questionImage.jpg", 
-        answerImage: "https://example.com/answerImage.jpg", 
+        questionImage: "https://wheatdesign.com/simpleflashcard/pix/MathQuestion.jpg", 
+        answerImage: "https://wheatdesign.com/simpleflashcard/pix/four.jpg",
       },
     ];
 ```
@@ -47,12 +47,15 @@ You'll get one of these statements when the app attempts to send an xAPI stateme
 * `Failed to save async xAPI statement:` + response code
 * `Async xAPI statement saved`
 
- ## What remains to be done? 
- - [ ] Improve accessibility
- - [ ] Implement more meaningful xAPI statements
- - [x] Implement basic xAPI
- - [x] Improve UX for display of long questions
+## Do you have a demo? 
+* https://wheatdesign.com/simpleflashcard/
 
- ## Learn More
- * TinCanJS docs: https://rusticisoftware.github.io/TinCanJS/
- * TinCanJS via jsDelivr CDN: https://www.jsdelivr.com/package/npm/tincanjs
+## What remains to be done? 
+- [ ] Improve accessibility
+- [ ] Implement more meaningful xAPI statements
+- [x] Implement basic xAPI
+- [x] Improve UX for display of long questions
+
+## Learn More
+* TinCanJS docs: https://rusticisoftware.github.io/TinCanJS/
+* TinCanJS via jsDelivr CDN: https://www.jsdelivr.com/package/npm/tincanjs
